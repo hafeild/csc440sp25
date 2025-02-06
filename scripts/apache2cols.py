@@ -35,10 +35,12 @@ import argparse
 #     columns = csv.reader([line], delimiter=" ").__next__()
 #     print('\t'.join(columns))
 
-def formatFile(input):
+def splitIntoColumns(line):
+        return csv.reader([line], delimiter=" ").__next__()
 
+def formatFile(input):
     for line in input:
-        columns = csv.reader([line], delimiter=" ").__next__()
+        columns = splitIntoColumns(line)
         print('\t'.join(columns))
 
 def main():
