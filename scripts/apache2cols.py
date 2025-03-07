@@ -36,6 +36,7 @@ import argparse
 #     print('\t'.join(columns))
 
 def splitIntoColumns(line):
+        line = line.replace('[', '"').replace(']', '"') # Check to make sure the timestamp is the only column that contains [].
         return csv.reader([line], delimiter=" ").__next__()
 
 def formatFile(input):
